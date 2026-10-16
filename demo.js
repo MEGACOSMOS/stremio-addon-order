@@ -1,5 +1,5 @@
 // Uma lista de extensões inventada (mas com extensões reais) para o exemplo:
-// o Cinemeta está em 4.º, atrás de três extensões de terceiros.
+// oficiais e de terceiros, misturadas.
 
 const cat = (id, nome, pesquisa = false) => ({
   type: 'movie', id, name: nome, extra: pesquisa ? [{ name: 'search', isRequired: false }] : [],

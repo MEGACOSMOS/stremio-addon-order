@@ -1,20 +1,18 @@
 # Addon Order
 
-**Put Cinemeta first in Stremio, on the home screen and in search. You can also drag your add-ons into any order.**
+**Change the order of your Stremio add-ons: on the home screen, in Discover and in search.**
 
 👉 **[megacosmos.github.io/stremio-addon-order](https://megacosmos.github.io/stremio-addon-order/)** · [see the example](https://megacosmos.github.io/stremio-addon-order/?exemplo&lang=en)
 
-![Addon Order: your add-ons in order, with Cinemeta one click away from the top](docs/exemplo.png)
+![Addon Order: every add-on in a list you can drag into any order](docs/exemplo.png)
 
 Stremio uses the order of your add-ons for almost everything. It sets the order of the rows on the home screen and in
 Discover, the order of the results in search, and which add-on provides the details of each movie or series. But
-Stremio has no way to change that order. Install a few add-ons and Cinemeta, the official catalogue, ends up at the
-bottom of everything.
+Stremio has no way to change that order: every new add-on simply goes to the end of the list.
 
 Addon Order fixes that:
 
-- **One click:** *Put Cinemeta first*.
-- **Or by hand:** drag any add-on by its handle, or use the arrows. "Move to top" is one tap, and the keyboard
+- **Drag** any add-on by its handle, or use the arrows. "Move to top" is one tap, and the keyboard
   works too (↑ ↓ and Home on the handle).
 - **Tags** show which add-ons have **search** (only these affect the search order) and which add **rows to the
   home screen**.
@@ -27,7 +25,7 @@ Once you've saved, close and reopen Stremio on each device to see the new order.
 1. Go to **[megacosmos.github.io/stremio-addon-order](https://megacosmos.github.io/stremio-addon-order/)**.
 2. Click **Sign in with my Stremio account**. A 4-letter code appears, which you confirm on Stremio's official
    page. This is the same system Stremio uses to connect a TV. You can also sign in with email and password.
-3. Click **Put Cinemeta first**, or reorder the list and click **Save to Stremio**.
+3. Put the add-ons in the order you want and click **Save to Stremio**.
 
 **Inside Stremio:** click **Install in Stremio** to add Addon Order as an add-on. It doesn't add any rows or
 catalogues. It just puts this page behind the add-on's **Configure** button. You can also install it straight from
@@ -57,7 +55,7 @@ Plain HTML, CSS and JavaScript, with no frameworks and no dependencies. It has t
 | File | What it does |
 |---|---|
 | `index.html`, `ordem.js`, `estilo.css` | The page: sign-in, the list, dragging, saving |
-| `colecao.js` | Order logic: Cinemeta first, moving, checking that the add-ons are still the same before saving |
+| `colecao.js` | Order logic: moving, checking that the add-ons are still the same before saving |
 | `textos.js` | Every piece of text, in Portuguese and English |
 | `demo.js` | The example add-on list |
 | `manifest.json` | The Stremio add-on (no catalogues, just `configurable`) |

@@ -3,26 +3,17 @@
 
 import assert from 'node:assert/strict';
 import { DEMO } from '../demo.js';
-import { eCinemeta, posicaoCinemeta, cinemetaPrimeiro, mover, mesmaOrdem, mesmasExtensoes, reordenar, temPesquisa } from '../colecao.js';
+import { mover, mesmaOrdem, mesmasExtensoes, reordenar, temPesquisa } from '../colecao.js';
 import { textos, linguaDe } from '../textos.js';
 
 const nomes = (lista) => lista.map((a) => a.manifest.name);
 
-// O Cinemeta passa para o topo e o resto fica pela mesma ordem.
-assert.equal(posicaoCinemeta(DEMO), 3);
-const primeiro = cinemetaPrimeiro(DEMO);
-assert.ok(eCinemeta(primeiro[0]));
-assert.deepEqual(nomes(primeiro).slice(1), nomes(DEMO).filter((n) => n !== 'Cinemeta'));
-assert.equal(DEMO.length, primeiro.length);
-assert.equal(posicaoCinemeta(DEMO), 3, 'a lista original não muda');
-
-// Já em primeiro: fica igual. Sem Cinemeta: fica igual.
-assert.ok(mesmaOrdem(cinemetaPrimeiro(primeiro), primeiro));
-const semCinemeta = DEMO.filter((a) => !eCinemeta(a));
-assert.ok(mesmaOrdem(cinemetaPrimeiro(semCinemeta), semCinemeta));
-
-// Reconhece o Cinemeta também só pelo endereço.
-assert.ok(eCinemeta({ transportUrl: 'https://v3-cinemeta.strem.io/manifest.json', manifest: {} }));
+// mover() leva uma extensão para o topo e o resto fica pela mesma ordem.
+const primeiro = mover(DEMO, 3, 0);
+assert.equal(primeiro[0], DEMO[3]);
+assert.deepEqual(nomes(primeiro).slice(1), nomes(DEMO).filter((_, i) => i !== 3));
+assert.equal(nomes(DEMO)[0], 'Torrentio', 'a lista original não muda');
+assert.ok(mesmaOrdem(mover(DEMO, 2, 2), DEMO));
 
 // mover() nos limites.
 assert.deepEqual(nomes(mover(DEMO, 0, 99)).at(-1), 'Torrentio');

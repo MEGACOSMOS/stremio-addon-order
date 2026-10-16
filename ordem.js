@@ -1,8 +1,8 @@
 // A página: entrar na conta do Stremio, ler a lista de extensões, mudar a
-// ordem (o Cinemeta à frente com um clique, ou à mão) e guardá-la.
+// ordem (arrastar, setas ou teclado) e guardá-la.
 
 import { textos, linguaDe, LINGUAS } from './textos.js';
-import { eCinemeta, posicaoCinemeta, temPesquisa, temCatalogos, eOficial, mover, cinemetaPrimeiro, mesmaOrdem, reordenar } from './colecao.js';
+import { temPesquisa, temCatalogos, eOficial, mover, mesmaOrdem, reordenar } from './colecao.js';
 import { DEMO } from './demo.js';
 
 const $ = (s) => document.querySelector(s);
@@ -247,7 +247,7 @@ function linhaExtensao(a, i, total) {
     temPesquisa(a) ? `<span class="etiqueta pesquisa">${esc(t.etiqueta_pesquisa)}</span>` : '',
     temCatalogos(a) ? `<span class="etiqueta">${esc(t.etiqueta_catalogos)}</span>` : '',
   ].join('');
-  return `<li class="extensao${eCinemeta(a) ? ' cinemeta' : ''}" data-i="${i}">
+  return `<li class="extensao" data-i="${i}">
     <button type="button" class="pega" data-acao="pega" aria-label="${esc(t.arrastar(nome))}">${ICONES.pega}</button>
     <span class="n">${i + 1}</span>
     ${icone(a)}
@@ -264,11 +264,7 @@ function linhaExtensao(a, i, total) {
 }
 
 function desenhar(mexida = null, focar = null) {
-  // O botão do Cinemeta segue o que o Stremio tem guardado; a lista, o que está no ecrã.
-  const pos = posicaoCinemeta(estado.lida);
   $('#ola').textContent = estado.sessao?.nome ? t.ola(estado.sessao.nome) : t.ola_sem_nome;
-  $('#cinemeta-primeiro').hidden = pos <= 0;
-  $('#instalar-cinemeta').hidden = pos >= 0;
 
   const ol = $('#lista');
   ol.innerHTML = estado.lista.map((a, i) => linhaExtensao(a, i, estado.lista.length)).join('');
@@ -402,7 +398,6 @@ async function guardar(ordem, { botao, repondo = false, realcar = null } = {}) {
   }
 }
 
-$('#cinemeta-primeiro').addEventListener('click', (ev) => guardar(cinemetaPrimeiro(estado.lista), { botao: ev.currentTarget, realcar: 0 }));
 $('#guardar').addEventListener('click', (ev) => guardar(estado.lista, { botao: ev.currentTarget }));
 $('#desfazer').addEventListener('click', () => { estado.lista = estado.lida.slice(); desenhar(); });
 $('#repor').addEventListener('click', (ev) => estado.anterior && guardar(estado.anterior, { botao: ev.currentTarget, repondo: true }));

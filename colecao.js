@@ -6,13 +6,6 @@
 // O Stremio usa esta ordem para as filas da página inicial, para os
 // resultados da pesquisa e para escolher quem dá os detalhes de cada filme.
 
-export const ID_CINEMETA = 'com.linvo.cinemeta';
-export const URL_CINEMETA = 'https://v3-cinemeta.strem.io/manifest.json';
-
-export const eCinemeta = (a) => a?.manifest?.id === ID_CINEMETA || /\/\/v3-cinemeta\.strem\.io\//.test(a?.transportUrl || '');
-
-export const posicaoCinemeta = (lista) => lista.findIndex(eCinemeta);
-
 // Tem pelo menos um catálogo que aceita pesquisa?
 export const temPesquisa = (a) => (a?.manifest?.catalogs || []).some((c) =>
   (c.extra || []).some((e) => e?.name === 'search') || (c.extraSupported || []).includes('search'));
@@ -30,8 +23,6 @@ export function mover(lista, de, para) {
   nova.splice(destino, 0, item);
   return nova;
 }
-
-export const cinemetaPrimeiro = (lista) => mover(lista, posicaoCinemeta(lista), 0);
 
 export const mesmaOrdem = (a, b) => a.length === b.length && a.every((x, i) => x.transportUrl === b[i].transportUrl);
 

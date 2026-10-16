@@ -7,13 +7,13 @@ const pt = {
   lingua: 'pt',
   local: 'pt-PT',
   titulo: 'Addon Order',
-  descricao_pagina: 'Põe o Cinemeta (ou qualquer extensão) em primeiro lugar no Stremio: na página inicial e na pesquisa.',
+  descricao_pagina: 'Muda a ordem das tuas extensões do Stremio: na página inicial, no Descobrir e na pesquisa.',
   lingua_rotulo: 'Língua',
   instalar: 'Instalar no Stremio',
   sair: 'Sair',
 
-  entrada_titulo: 'O Cinemeta em primeiro lugar. Na página inicial e na pesquisa.',
-  entrada_texto: 'O Stremio mostra as filas e os resultados da pesquisa pela ordem das extensões, mas não te deixa mudá-la. Aqui deixa: com um clique pões o Cinemeta à frente, ou arrastas as extensões para a ordem que quiseres.',
+  entrada_titulo: 'As tuas extensões, pela ordem que quiseres.',
+  entrada_texto: 'O Stremio mostra as filas e os resultados da pesquisa pela ordem das extensões, mas não te deixa mudá-la. Aqui deixa: arrasta as extensões para a ordem que quiseres e guarda.',
   entrar_link: 'Entrar com a minha conta do Stremio',
   ver_exemplo: 'Ver um exemplo',
   alternativa: 'Prefiro escrever o email e a palavra-passe',
@@ -35,9 +35,7 @@ const pt = {
   ola: (nome) => `Olá, ${nome}.`,
   ola_sem_nome: 'As tuas extensões',
   heroi_titulo: 'Muda a ordem das tuas extensões.',
-  heroi_texto: 'O Stremio mostra as filas da página inicial e os resultados da pesquisa pela ordem das extensões. Aqui escolhes essa ordem: põe o Cinemeta à frente com um clique, ou arrasta as extensões para onde quiseres e guarda.',
-  cinemeta_primeiro: 'Pôr o Cinemeta em primeiro',
-  instalar_cinemeta: 'Instalar o Cinemeta',
+  heroi_texto: 'O Stremio mostra as filas da página inicial e os resultados da pesquisa pela ordem das extensões. Aqui escolhes essa ordem: arrasta as extensões ou usa as setas, e guarda.',
 
   lista_titulo: 'Todas as extensões',
   lista_sub: 'Arrasta pela pega ou usa as setas. De cima para baixo é a ordem do Stremio.',
@@ -67,7 +65,7 @@ const pt = {
   como_titulo: 'Para que serve a ordem',
   como_1_html: '<strong>Página inicial e Descobrir</strong> — as filas aparecem pela ordem das extensões (a não ser que as tenhas reordenado à mão nas definições do Stremio).',
   como_2_html: '<strong>Pesquisa</strong> — os resultados de cada extensão com pesquisa aparecem pela mesma ordem. As que têm a etiqueta “Pesquisa” são as que contam.',
-  como_3_html: '<strong>Detalhes dos filmes e séries</strong> — se tiveres outra extensão de metadados (TMDB, por exemplo), o Stremio usa a primeira da lista. Com o Cinemeta à frente, as sinopses, os elencos e as imagens passam a vir dele.',
+  como_3_html: '<strong>Detalhes dos filmes e séries</strong> — se tiveres mais do que uma extensão de metadados, o Stremio usa a primeira da lista para as sinopses, os elencos e as imagens.',
 
   rodape: 'Esta página não é do Stremio. Só muda a ordem das tuas extensões; não instala nem remove nenhuma.',
 
@@ -86,13 +84,13 @@ const en = {
   lingua: 'en',
   local: 'en',
   titulo: 'Addon Order',
-  descricao_pagina: 'Put Cinemeta (or any add-on) first in Stremio: on the home screen and in search.',
+  descricao_pagina: 'Change the order of your Stremio add-ons: on the home screen, in Discover and in search.',
   lingua_rotulo: 'Language',
   instalar: 'Install in Stremio',
   sair: 'Sign out',
 
-  entrada_titulo: 'Cinemeta first. On the home screen and in search.',
-  entrada_texto: 'Stremio shows its rows and search results in the order of your add-ons, but won’t let you change it. This page does: put Cinemeta in front with one click, or drag your add-ons into any order you like.',
+  entrada_titulo: 'Your add-ons, in the order you want.',
+  entrada_texto: 'Stremio shows its rows and search results in the order of your add-ons, but won’t let you change it. This page does: drag your add-ons into any order you like and save.',
   entrar_link: 'Sign in with my Stremio account',
   ver_exemplo: 'See an example',
   alternativa: 'I’d rather type my email and password',
@@ -114,9 +112,7 @@ const en = {
   ola: (nome) => `Hi, ${nome}.`,
   ola_sem_nome: 'Your add-ons',
   heroi_titulo: 'Change the order of your add-ons.',
-  heroi_texto: 'Stremio shows home-screen rows and search results in the order of your add-ons. Here you choose that order: put Cinemeta first with one click, or drag your add-ons wherever you like and save.',
-  cinemeta_primeiro: 'Put Cinemeta first',
-  instalar_cinemeta: 'Install Cinemeta',
+  heroi_texto: 'Stremio shows home-screen rows and search results in the order of your add-ons. Here you choose that order: drag your add-ons or use the arrows, and save.',
 
   lista_titulo: 'All add-ons',
   lista_sub: 'Drag by the handle or use the arrows. Top to bottom is Stremio’s order.',
@@ -146,7 +142,7 @@ const en = {
   como_titulo: 'What the order does',
   como_1_html: '<strong>Home screen and Discover</strong> — rows appear in the order of your add-ons (unless you’ve reordered them by hand in Stremio’s settings).',
   como_2_html: '<strong>Search</strong> — results from each add-on with search appear in the same order. The ones tagged “Search” are the ones that count.',
-  como_3_html: '<strong>Movie and series details</strong> — if you have another metadata add-on (TMDB, for example), Stremio uses the first one in the list. With Cinemeta in front, plots, casts and artwork come from it.',
+  como_3_html: '<strong>Movie and series details</strong> — if you have more than one metadata add-on, Stremio uses the first one in the list for plots, casts and artwork.',
 
   rodape: 'This page is not made by Stremio. It only changes the order of your add-ons; it never installs or removes any.',
 
