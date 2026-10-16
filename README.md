@@ -4,7 +4,7 @@
 
 👉 **[megacosmos.github.io/stremio-addon-order](https://megacosmos.github.io/stremio-addon-order/)** · [see the example](https://megacosmos.github.io/stremio-addon-order/?exemplo&lang=en)
 
-![Addon Order: Cinemeta is 4th, one click puts it first](docs/exemplo.png)
+![Addon Order: your add-ons in order, with Cinemeta one click away from the top](docs/exemplo.png)
 
 Stremio uses the order of your add-ons for almost everything. It sets the order of the rows on the home screen and in
 Discover, the order of the results in search, and which add-on provides the details of each movie or series. But

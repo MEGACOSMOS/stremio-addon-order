@@ -264,14 +264,9 @@ function linhaExtensao(a, i, total) {
 }
 
 function desenhar(mexida = null, focar = null) {
-  // O topo descreve o que o Stremio tem guardado; a lista, o que está no ecrã.
+  // O botão do Cinemeta segue o que o Stremio tem guardado; a lista, o que está no ecrã.
   const pos = posicaoCinemeta(estado.lida);
-  const lugar = $('#lugar');
-  lugar.textContent = pos < 0 ? '' : t.lugar(pos + 1);
-  lugar.classList.toggle('feito', pos === 0);
   $('#ola').textContent = estado.sessao?.nome ? t.ola(estado.sessao.nome) : t.ola_sem_nome;
-  $('#estado-titulo').textContent = pos < 0 ? t.estado_falta : pos === 0 ? t.estado_primeiro : t.estado_lugar(pos + 1);
-  $('#estado-texto').textContent = pos < 0 ? t.texto_falta : pos === 0 ? t.texto_primeiro : t.texto_lugar(pos);
   $('#cinemeta-primeiro').hidden = pos <= 0;
   $('#instalar-cinemeta').hidden = pos >= 0;
 

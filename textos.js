@@ -34,13 +34,8 @@ const pt = {
 
   ola: (nome) => `Olá, ${nome}.`,
   ola_sem_nome: 'As tuas extensões',
-  lugar: (n) => `${n}.º`,
-  estado_primeiro: 'O Cinemeta está em primeiro lugar.',
-  estado_lugar: (n) => `O Cinemeta está em ${n}.º lugar.`,
-  estado_falta: 'O Cinemeta não está instalado.',
-  texto_primeiro: 'As filas dele aparecem primeiro na página inicial e os resultados dele aparecem primeiro na pesquisa.',
-  texto_lugar: (antes) => `Há ${antes === 1 ? '1 extensão' : `${antes} extensões`} à frente dele: as filas e os resultados da pesquisa dessas aparecem primeiro.`,
-  texto_falta: 'É o catálogo oficial do Stremio. Instala-o primeiro e depois volta a esta página.',
+  heroi_titulo: 'Muda a ordem das tuas extensões.',
+  heroi_texto: 'O Stremio mostra as filas da página inicial e os resultados da pesquisa pela ordem das extensões. Aqui escolhes essa ordem: põe o Cinemeta à frente com um clique, ou arrasta as extensões para onde quiseres e guarda.',
   cinemeta_primeiro: 'Pôr o Cinemeta em primeiro',
   instalar_cinemeta: 'Instalar o Cinemeta',
 
@@ -118,13 +113,8 @@ const en = {
 
   ola: (nome) => `Hi, ${nome}.`,
   ola_sem_nome: 'Your add-ons',
-  lugar: (n) => `${n}${['th', 'st', 'nd', 'rd'][(n % 100 > 10 && n % 100 < 14) ? 0 : (n % 10 < 4 ? n % 10 : 0)]}`,
-  estado_primeiro: 'Cinemeta is first.',
-  estado_lugar: (n) => `Cinemeta is ${en.lugar(n)}.`,
-  estado_falta: 'Cinemeta isn’t installed.',
-  texto_primeiro: 'Its rows come first on the home screen and its results come first in search.',
-  texto_lugar: (antes) => `There ${antes === 1 ? 'is 1 add-on' : `are ${antes} add-ons`} ahead of it: their rows and search results show up first.`,
-  texto_falta: 'It’s Stremio’s official catalogue. Install it first, then come back to this page.',
+  heroi_titulo: 'Change the order of your add-ons.',
+  heroi_texto: 'Stremio shows home-screen rows and search results in the order of your add-ons. Here you choose that order: put Cinemeta first with one click, or drag your add-ons wherever you like and save.',
   cinemeta_primeiro: 'Put Cinemeta first',
   instalar_cinemeta: 'Install Cinemeta',
 

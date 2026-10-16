@@ -48,7 +48,5 @@ const en = textos('en');
 assert.deepEqual(Object.keys(pt).sort(), Object.keys(en).sort());
 assert.equal(linguaDe(null, ['pt-BR', 'en']), 'pt');
 assert.equal(linguaDe(null, ['de-DE']), 'en');
-assert.deepEqual([1, 2, 3, 4, 11, 12, 13, 21, 22, 101].map(en.lugar), ['1st', '2nd', '3rd', '4th', '11th', '12th', '13th', '21st', '22nd', '101st']);
-assert.equal(pt.lugar(4), '4.º');
 
 console.log('Tudo certo.');
