@@ -1,0 +1,12 @@
+{
+  "id": "community.megacosmos.addon-order",
+  "version": "1.0.0",
+  "name": "Addon Order",
+  "description": "Put Cinemeta (or any add-on) first — on the home screen and in search. Click Configure to reorder your add-ons. / Põe o Cinemeta (ou qualquer extensão) em primeiro lugar. Carrega em Configurar para mudar a ordem.",
+  "logo": "https://megacosmos.github.io/stremio-addon-order/logo.png",
+  "background": "https://megacosmos.github.io/stremio-addon-order/fundo.jpg",
+  "types": ["movie", "series"],
+  "resources": ["catalog"],
+  "catalogs": [],
+  "behaviorHints": { "configurable": true, "configurationRequired": false }
+}

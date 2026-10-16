@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Addon Order</title>
+  <meta name="description" content="Põe o Cinemeta (ou qualquer extensão) em primeiro lugar no Stremio: na página inicial e na pesquisa.">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="stylesheet" href="estilo.css">
+  <script type="module" src="ordem.js"></script>
+</head>
+<body>
+  <!-- Os textos em português são os de partida; ordem.js troca-os pela língua escolhida (data-t). -->
+  <header class="topo">
+    <div class="marca"><img src="logo.png" alt="" width="32" height="32"><span data-t="titulo">Addon Order</span></div>
+    <select id="lingua" class="lingua" data-t-aria="lingua_rotulo" aria-label="Língua"></select>
+    <button class="botao fantasma" id="instalar" data-t="instalar">Instalar no Stremio</button>
+    <button class="botao fantasma" id="sair" hidden data-t="sair">Sair</button>
+  </header>
+
+  <main>
+    <!-- Entrar -->
+    <section class="entrada" id="vista-entrada" hidden>
+      <h1 data-t="entrada_titulo">O Cinemeta em primeiro lugar. Na página inicial e na pesquisa.</h1>
+      <p data-t="entrada_texto">O Stremio mostra as filas e os resultados da pesquisa pela ordem das extensões, mas não te deixa mudá-la.</p>
+
+      <div class="caixa" id="caixa-entrar">
+        <div class="acoes">
+          <button class="botao grande" id="entrar-link" data-t="entrar_link">Entrar com a minha conta do Stremio</button>
+          <button class="botao fantasma grande" id="ver-exemplo" data-t="ver_exemplo">Ver um exemplo</button>
+        </div>
+        <p class="erro" id="erro-entrada" hidden></p>
+
+        <details class="alternativa" id="alternativa">
+          <summary data-t="alternativa">Prefiro escrever o email e a palavra-passe</summary>
+          <form class="login" id="form-login">
+            <label class="campo"><span data-t="campo_email">Email da conta do Stremio</span>
+              <input type="email" name="email" autocomplete="username" required>
+            </label>
+            <label class="campo"><span data-t="campo_senha">Palavra-passe</span>
+              <input type="password" name="password" autocomplete="current-password" required>
+            </label>
+            <button class="botao" type="submit" data-t="entrar">Entrar</button>
+          </form>
+        </details>
+      </div>
+
+      <div class="caixa" id="caixa-codigo" hidden>
+        <ol class="passos">
+          <li data-t="passo1">Abre a página de confirmação do Stremio (entra na tua conta se ele pedir).</li>
+          <li data-t="passo2">Confirma que o código é este:</li>
+        </ol>
+        <div class="codigo" id="codigo">····</div>
+        <div class="acoes" style="margin-top:16px">
+          <a class="botao" id="abrir-link" href="#" target="_blank" rel="noopener noreferrer" data-t="abrir_confirmacao">Abrir a página de confirmação</a>
+          <button class="botao fantasma" id="cancelar-link" data-t="cancelar">Cancelar</button>
+        </div>
+        <div class="espera"><span class="roda" aria-hidden="true"></span><span data-t="a_espera">À espera da confirmação… esta página continua sozinha.</span></div>
+      </div>
+
+      <p class="privacidade" data-t="privacidade">A palavra-passe nunca passa por aqui: vai diretamente para o Stremio.</p>
+    </section>
+
+    <!-- A carregar -->
+    <section class="carregar" id="vista-carregar" hidden>
+      <span class="roda grande" aria-hidden="true"></span>
+      <div data-t="a_ler">A ler as tuas extensões do Stremio…</div>
+    </section>
+
+    <!-- As extensões -->
+    <section id="vista-lista" hidden>
+      <div class="aviso-demo" id="aviso-demo" hidden>
+        <span data-t="aviso_demo_html">Isto é um <strong>exemplo</strong>. Podes mexer à vontade: nada é guardado.</span>
+        <button class="botao" id="demo-entrar" data-t="demo_entrar">Ordenar as minhas extensões</button>
+      </div>
+
+      <div class="heroi">
+        <div class="rotulo" id="ola"></div>
+        <div class="estado">
+          <div class="lugar" id="lugar" aria-hidden="true"></div>
+          <div>
+            <h1 id="estado-titulo"></h1>
+            <p id="estado-texto"></p>
+          </div>
+        </div>
+        <div class="acoes esquerda">
+          <button class="botao grande" id="cinemeta-primeiro" data-t="cinemeta_primeiro">Pôr o Cinemeta em primeiro</button>
+          <a class="botao grande" id="instalar-cinemeta" hidden href="stremio://v3-cinemeta.strem.io/manifest.json" data-t="instalar_cinemeta">Instalar o Cinemeta</a>
+        </div>
+      </div>
+
+      <div class="mensagem" id="mensagem" role="status" hidden>
+        <span id="mensagem-texto"></span>
+        <button class="botao fantasma" id="repor" hidden data-t="repor">Repor a ordem anterior</button>
+      </div>
+
+      <div class="grelha">
+        <article class="cartao principal">
+          <div class="cabeca"><div><h2 data-t="lista_titulo">Todas as extensões</h2><p data-t="lista_sub">Arrasta pela pega ou usa as setas.</p></div></div>
+          <ol class="extensoes" id="lista"></ol>
+        </article>
+
+        <article class="cartao lateral">
+          <div class="cabeca"><div><h2 data-t="como_titulo">Para que serve a ordem</h2></div></div>
+          <ul class="como">
+            <li data-t="como_1_html"></li>
+            <li data-t="como_2_html"></li>
+            <li data-t="como_3_html"></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="barra-guardar" id="barra-guardar" hidden>
+        <span data-t="por_guardar">Tens alterações por guardar.</span>
+        <div class="acoes">
+          <button class="botao fantasma" id="desfazer" data-t="desfazer">Desfazer</button>
+          <button class="botao" id="guardar" data-t="guardar">Guardar no Stremio</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-t="rodape">Esta página não é do Stremio. Só muda a ordem das tuas extensões; não instala nem remove nenhuma.</footer>
+
+  <dialog id="janela-instalar">
+    <h2 data-t="janela_titulo">Instalar no Stremio</h2>
+    <p data-t="janela_texto_html">A extensão não acrescenta filas nem catálogos: serve para teres esta página à mão.</p>
+    <p id="instalar-local" hidden data-t="janela_local_html"></p>
+    <div class="acoes">
+      <a class="botao" id="instalar-abrir" href="#" data-t="abrir_no_stremio">Abrir no Stremio</a>
+      <button class="botao fantasma" id="instalar-fechar" data-t="fechar">Fechar</button>
+    </div>
+    <p class="pequeno" data-t="janela_se_nao">Se o botão não abrir o Stremio, copia este link e cola-o na pesquisa da página de extensões do Stremio:</p>
+    <div class="link-copiar"><input id="instalar-url" readonly data-t-aria="link_aria" aria-label="Link da extensão"><button class="botao fantasma" id="instalar-copiar" data-t="copiar">Copiar</button></div>
+  </dialog>
+</body>
+</html>
